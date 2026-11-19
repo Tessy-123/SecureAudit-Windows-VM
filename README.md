@@ -7,7 +7,7 @@ SecureAudit is an interactive defensive security auditing web application design
 
 ## Live Application
 
-- **GitHub Pages:** https://Tessy-123.github.io/SecureAudit-Windows-VM/
+- **Deployed GitHub Pages Website:** https://Tessy-123.github.io/SecureAudit-Windows-VM/
 - **GitHub Repository:** https://github.com/Tessy-123/SecureAudit-Windows-VM
 
 ## Features
