@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SecureAudit — Windows System Security Assessment</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="topbar">
+    <div class="brand" onclick="navigateTo('landing')">
+      <span class="brand-badge">PROJECT 09</span>
+      <h1>SecureAudit</h1>
+    </div>
+
+    <nav class="stepper" aria-label="Assessment Progress">
+      <button id="nav-landing" class="step-btn active" onclick="navigateTo('landing')">
+        Overview
+      </button>
+      <span class="step-arrow">&rarr;</span>
+      <button id="nav-hub" class="step-btn" onclick="navigateTo('hub')">
+        Assessments (<span id="global-progress">0/16</span>)
+      </button>
+      <span class="step-arrow">&rarr;</span>
+      <button id="nav-report" class="step-btn" onclick="navigateTo('report')">
+        Final Audit Report
+      </button>
+    </nav>
+
+    <a
+      href="https://github.com/Tessy-123/SecureAudit-Windows-VM"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn-secondary"
+    >
+      GitHub Repo
+    </a>
+  </header>
+
+  <main class="container">
+
+    <!-- =========================================================
+         PAGE 1: LANDING / OVERVIEW & START ASSESSMENT
+    ========================================================== -->
+    <section id="page-landing" class="page active">
+      <div class="hero-card">
+        <span class="pill">Defensive Security Auditing Tool</span>
+        <h2>SecureAudit: Windows System Security Assessment</h2>
+        <p class="hero-desc">
+          Designed to help conduct an ethical security assessment of an authorised Windows virtual
+          machine (VM), identify security weaknesses, and produce a downloadable Windows Security
+          Audit Report.
+        </p>
+
+        <!-- Brief Explanation of How It Works -->
+        <div class="how-it-works">
+          <h3>How It Works</h3>
+          <div class="steps-grid">
+            <div class="info-card">
+              <h4>Confirm VM Scope</h4>
+              <p>Enter your authorised Windows VM details and confirm ethical assessment consent.</p>
+            </div>
+            <div class="info-card">
+              <h4>Assess 4 Security Areas</h4>
+              <p>Click into Account Privileges, Security Policies, Firewall Settings, and System Configuration to audit each area.</p>
+            </div>
+            <div class="info-card">
+              <h4>Get Final Audit Report</h4>
+              <p>View your calculated security score, identified weaknesses, recommendations, and download the report.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Target VM Details & Authorisation -->
+        <div class="vm-setup-box">
+          <h3>Authorised Windows VM Details</h3>
+          <div class="form-grid">
+            <label>
+              <span>VM Hostname</span>
+              <input type="text" id="vm-hostname" value="WIN11-VM-AUDIT01" />
+            </label>
+            <label>
+              <span>Windows OS / Build</span>
+              <input type="text" id="vm-os" value="Windows 11 Pro (23H2)" />
+            </label>
+            <label>
+              <span>Virtualization Platform</span>
+              <select id="vm-hypervisor">
+                <option value="VMware Workstation">VMware Workstation</option>
+                <option value="Oracle VirtualBox">Oracle VirtualBox</option>
+                <option value="Microsoft Hyper-V">Microsoft Hyper-V</option>
+              </select>
+            </label>
+            <label>
+              <span>Auditor Name</span>
+              <input type="text" id="vm-assessor" value="Chinsinsi Msanyama" />
+            </label>
+          </div>
+
+          <label class="consent-check">
+            <input type="checkbox" id="auth-consent" checked />
+            <span>I confirm this assessment is conducted ethically on an explicitly authorised Windows virtual machine.</span>
+          </label>
+          <p id="consent-error" class="error-msg hidden">
+            Please confirm authorisation before starting the assessment.
+          </p>
+        </div>
+
+        <div class="hero-actions">
+          <button class="btn-primary btn-lg" onclick="startAssessment()">
+            Start Assessment &rarr;
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         PAGE 2A: THE FOUR REAL ASSESSMENTS HUB
+    ========================================================== -->
+    <section id="page-hub" class="page">
+      <div class="section-header">
+        <div>
+          <span class="pill">Four Security Assessments</span>
+          <h2>Windows VM Security Assessments</h2>
+          <p>Click any assessment card below to open its dedicated assessment workspace.</p>
+        </div>
+        <div class="hub-actions">
+          <button class="btn-secondary" onclick="loadSampleBaseline('unhardened')">Load Sample Weak VM</button>
+          <button class="btn-primary" onclick="navigateTo('report')">Final Audit Report &rarr;</button>
+        </div>
+      </div>
+
+      <div id="domains-grid" class="domains-grid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- =========================================================
+         PAGE 2B: DEDICATED ASSESSMENT WORKSPACE (WHERE EACH IS DONE)
+    ========================================================== -->
+    <section id="page-workspace" class="page">
+      <div class="workspace-nav">
+        <button class="btn-secondary" onclick="navigateTo('hub')">&larr; All Four Assessments</button>
+        <div id="workspace-pills" class="domain-switcher"></div>
+      </div>
+
+      <div id="workspace-content" class="workspace-card">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- =========================================================
+         PAGE 3: FINAL WINDOWS SECURITY AUDIT REPORT
+    ========================================================== -->
+    <section id="page-report" class="page">
+      <div id="report-content">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
