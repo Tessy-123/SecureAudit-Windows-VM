@@ -1,3 +1,6 @@
+- GitHub Repository: https://github.com/Tessy-123/SecureAudit-Windows-VM
+- Deployed Portfolio: https://Tessy-123.github.io/SecureAudit-Windows-VM/
+
 # SecureAudit — Windows System Security Assessment
 
 SecureAudit is an interactive defensive security auditing web application designed for ethical assessment of an authorised Windows virtual machine. It guides an assessor through four security areas, records control findings, calculates an overall security score, and generates downloadable audit reports.
@@ -7,8 +10,8 @@ SecureAudit is an interactive defensive security auditing web application design
 
 ## Live Application
 
-- **Deployed GitHub Pages Website:** https://Tessy-123.github.io/SecureAudit-Windows-VM/
 - **GitHub Repository:** https://github.com/Tessy-123/SecureAudit-Windows-VM
+- **Deployed Portfolio:** https://Tessy-123.github.io/SecureAudit-Windows-VM/
 
 ## Features
 
